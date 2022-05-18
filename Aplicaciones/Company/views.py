@@ -1,4 +1,6 @@
+from operator import index
 from unicodedata import name
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .models import Company
 
@@ -7,7 +9,9 @@ from .models import Company
 
 def home(request):
     listCompanyes = Company.objects.all()
-    return render(request, "gestionCompanys.html", {'Companyes': listCompanyes})
+    return JsonResponse(listCompanyes, safe=False)
+    
+
 
 
 def createCompany(request):

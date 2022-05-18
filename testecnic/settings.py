@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'testecnic.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'apidjango',
         'USER': 'apidjango_user',
         'PASSWORD': 'PDl1lxIBMj7x6EPymSMRW30ekg8oN1Ei',
