@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8t%yp$423gpwgstkwew5hs7cc=(=e$hmf*gkfty+@8)+u^wfss
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['apidjango.onrender.com']
 
 
 # Application definition
@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'testecnic.wsgi.application'
 
 DATABASES = {
     'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'apidjango',
         'USER': 'apidjango_user',
         'PASSWORD': 'PDl1lxIBMj7x6EPymSMRW30ekg8oN1Ei',
