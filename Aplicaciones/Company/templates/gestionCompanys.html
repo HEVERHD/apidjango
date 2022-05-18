@@ -1,0 +1,63 @@
+{% extends "./plantilla.html" %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm12 col-md-6 col-lg-4 col-xl-3">
+        <h1> Gestion the companys</h1>
+        <div class="card">
+            <div class="card-body">
+                <form action="createCompany/" method="POST">{% csrf_token %}
+                    <div class="form-group">
+                        <input type="number" id="numNit" name="numNit" class="form-control" placeholder="Nit" value="789" minlength="10" maxlength="10" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtName" name="txtName" class="form-control" placeholder="Name" max="50" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtDescription" name="txtDescription" class="form-control" placeholder="Description" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtAddress" name="txtAddress" class="form-control" placeholder="Address" max="50" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="numPhone" name="numPhone" class="form-control" placeholder="Phone" minlength="10" required>
+                        <button type="submit" class="btn btn-success-block text-bg-dark"> Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-9">
+        <h1>List of companys</h1>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nit </th>
+                            <th>Name</th>
+                            <th>Description </th>
+                            <th>Phone </th>
+                            <th>Address </th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in Companyes %}
+                       <tr>
+                           <td>{{forloop.counter}}</td>
+                            <td class="text-center">{{ c.nit }}</td>
+                            <td class="text-center">{{ c.name }}</td>
+                            <td class="text-center">{{ c.description }}</td>
+                            <td class="text-center">{{ c.phone }}</td>
+                            <td class="text-center">{{ c.address }}</td>
+                              <td> <a href="edicionCompany/{{ c.nit}}" class="btn btn-primary">Edit</a></td> 
+                               <td><a href="deleteCompany/{{ c.nit}}" class="btn btn-danger btnDelete">Delete</a></td> 
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>
+{% endblock %}
