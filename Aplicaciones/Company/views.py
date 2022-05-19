@@ -1,3 +1,4 @@
+import json
 from operator import index
 from unicodedata import name
 from django.http import JsonResponse
@@ -13,15 +14,17 @@ def home(request):
 
 
 def createCompany(request):
-    nit = request.POST['numNit']
-    name = request.POST['txtName']
-    description = request.POST['txtDescription']
-    address = request.POST['txtAddress']
-    phone = request.POST['numPhone']
+    json_data = json.loads(request.body)
+
+    nit = json_data['nit']
+    name = json_data['name']
+    description = json_data['description']
+    address = json_data['address']
+    phone = json_data['phone']
 
     company = Company.objects.create(
         nit=nit, name=name, description=description, address=address, phone=phone)
-    return redirect('/')
+    return JsonResponse(json_data, safe=False)
 
 
 def edicionCompany(request, nit):
@@ -30,11 +33,13 @@ def edicionCompany(request, nit):
 
 
 def editCompany(request):
-    nit = request.POST['numNit']
-    name = request.POST['txtName']
-    description = request.POST['txtDescription']
-    address = request.POST['txtAddress']
-    phone = request.POST['numPhone']
+    json_data = json.loads(request.body)
+
+    nit = json_data['nit']
+    name = json_data['name']
+    description = json_data['description']
+    address = json_data['address']
+    phone = json_data['phone']
 
     company = Company.objects.get(nit=nit)
     company.nit = nit
@@ -43,10 +48,10 @@ def editCompany(request):
     company.address = address
     company.phone = phone
     company.save()
-    return redirect('/')
+    return JsonResponse(json_data, safe=False)
 
 
 def deleteCompany(request, nit):
     company = Company.objects.get(nit=nit)
     company.delete()
-    return redirect('/')
+    return JsonResponse({}, safe=False)

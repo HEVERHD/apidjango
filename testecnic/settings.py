@@ -44,7 +44,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -74,26 +74,26 @@ WSGI_APPLICATION = 'testecnic.wsgi.application'
 # # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'apidjango',
-        'USER': 'apidjango_user',
-        'PASSWORD': 'PDl1lxIBMj7x6EPymSMRW30ekg8oN1Ei',
-        'HOST': 'dpg-ca2ni2f6d9kultvekd30-a',
-        'PORT': 5432,
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'apidjango',
+#         'USER': 'apidjango_user',
+#         'PASSWORD': 'PDl1lxIBMj7x6EPymSMRW30ekg8oN1Ei',
+#         'HOST': 'dpg-ca2ni2f6d9kultvekd30-a',
+#         'PORT': 5432,
 
-    }
-}
+#     }
+# }
 
 # PARA CORRER EN LOCAL
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': 'Testecnic.db',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'Testecnic.db',
+    }
+}
 
 
 # Password validation
