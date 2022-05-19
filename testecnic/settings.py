@@ -74,7 +74,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'testecnic.wsgi.application'
 
 
-# # Database
+#  Database PARA PRODUCTION
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {

@@ -4,6 +4,7 @@ from unicodedata import name
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .models import Company
+from django.forms.models import model_to_dict
 
 # Create your views here.
 
@@ -11,6 +12,12 @@ from .models import Company
 def home(request):
     listCompanyes = list(Company.objects.values())
     return JsonResponse(listCompanyes, safe=False)
+
+
+def nitCompany(request, nit):
+    nitCompany = Company.objects.get(nit=nit)
+    return JsonResponse(model_to_dict(nitCompany), safe=False)
+
 
 
 def createCompany(request):
