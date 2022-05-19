@@ -8,10 +8,8 @@ from .models import Company
 
 
 def home(request):
-    listCompanyes = Company.objects.all()
+    listCompanyes = list(Company.objects.values())
     return JsonResponse(listCompanyes, safe=False)
-    
-
 
 
 def createCompany(request):

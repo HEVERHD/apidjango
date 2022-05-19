@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8t%yp$423gpwgstkwew5hs7cc=(=e$hmf*gkfty+@8)+u^wfss
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['apidjango.onrender.com']
+ALLOWED_HOSTS = ['apidjango.onrender.com', '127.0.0.1']
 
 
 # Application definition
@@ -71,7 +71,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'testecnic.wsgi.application'
 
 
-# Database
+# # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
@@ -85,6 +85,15 @@ DATABASES = {
 
     }
 }
+
+# PARA CORRER EN LOCAL
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'Testecnic.db',
+#     }
+# }
 
 
 # Password validation
