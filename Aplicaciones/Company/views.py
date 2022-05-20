@@ -18,8 +18,6 @@ def nitCompany(request, nit):
     nitCompany = Company.objects.get(nit=nit)
     return JsonResponse(model_to_dict(nitCompany), safe=False)
 
-
-
 def createCompany(request):
     json_data = json.loads(request.body)
 
@@ -39,17 +37,17 @@ def edicionCompany(request, nit):
     return render(request, "edicionCompany.html", {'company': company})
 
 
-def editCompany(request):
+def editCompany(request, nit):
     json_data = json.loads(request.body)
 
-    nit = json_data['nit']
+    nitnew = json_data['nit']
     name = json_data['name']
     description = json_data['description']
     address = json_data['address']
     phone = json_data['phone']
 
     company = Company.objects.get(nit=nit)
-    company.nit = nit
+    company.nit = nitnew
     company.name = name
     company.description = description
     company.address = address
